@@ -1,0 +1,844 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Greace Xaveria — Tour Leader & Content Creator</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --cream:    #f7f3ee;
+    --warm:     #ede8e1;
+    --sand:     #d6cfc5;
+    --taupe:    #9e9088;
+    --brown:    #6b5f54;
+    --dark:     #2e2620;
+    --accent:   #b89b7e;
+    --accent2:  #c4a882;
+    --white:    #fdfaf7;
+    --border:   #e2dbd3;
+  }
+
+  body {
+    font-family: 'Jost', sans-serif;
+    background: var(--cream);
+    color: var(--dark);
+    font-weight: 300;
+    letter-spacing: 0.02em;
+    line-height: 1.7;
+  }
+
+  /* ── TOP STRIP ──────────────────────────────────────── */
+  .top-strip {
+    background: var(--dark);
+    text-align: center;
+    padding: 10px;
+    font-size: 10px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: var(--sand);
+    font-weight: 400;
+  }
+
+  /* ── HEADER ─────────────────────────────────────────── */
+  .header {
+    background: var(--white);
+    border-bottom: 1px solid var(--border);
+    padding: 56px 60px 44px;
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    align-items: end;
+    gap: 32px;
+  }
+
+  .header-left {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+  .header-contact-item {
+    font-size: 11px;
+    color: var(--taupe);
+    letter-spacing: 0.5px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .header-contact-item span:first-child {
+    color: var(--accent);
+    font-size: 12px;
+  }
+
+  .header-center {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+  }
+
+  .photo-ring {
+    width: 110px;
+    height: 110px;
+    border-radius: 50%;
+    border: 1.5px solid var(--sand);
+    padding: 4px;
+    background: var(--cream);
+  }
+  .photo-ring img {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+    filter: sepia(8%) contrast(95%);
+  }
+
+  .name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 38px;
+    font-weight: 400;
+    color: var(--dark);
+    letter-spacing: 1px;
+    line-height: 1.1;
+  }
+  .name em {
+    font-style: italic;
+    color: var(--accent);
+  }
+
+  .handle {
+    font-size: 10.5px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--taupe);
+  }
+
+  .header-right {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 8px;
+  }
+
+  /* ── DIVIDER ─────────────────────────────────────────── */
+  .divider {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 0 60px;
+    margin: 28px 0;
+    color: var(--accent);
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 13px;
+    font-style: italic;
+    letter-spacing: 1px;
+  }
+  .divider::before, .divider::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: var(--border);
+  }
+
+  /* ── PILLS ROW ───────────────────────────────────────── */
+  .pills-row {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    flex-wrap: wrap;
+    padding: 0 60px;
+    margin-bottom: 36px;
+  }
+  .pill {
+    border: 1px solid var(--border);
+    border-radius: 100px;
+    padding: 5px 18px;
+    font-size: 10.5px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--brown);
+    background: var(--white);
+  }
+
+  /* ── BODY ────────────────────────────────────────────── */
+  .body {
+    display: grid;
+    grid-template-columns: 260px 1fr;
+    gap: 0;
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0 60px 60px;
+  }
+
+  /* ── SIDEBAR ─────────────────────────────────────────── */
+  .sidebar {
+    padding-right: 40px;
+    border-right: 1px solid var(--border);
+  }
+
+  .sb-block {
+    margin-bottom: 32px;
+  }
+
+  .sb-label {
+    font-size: 9px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: var(--accent);
+    font-weight: 500;
+    margin-bottom: 14px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .sb-label::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: var(--border);
+  }
+
+  .sb-item {
+    margin-bottom: 8px;
+    font-size: 12px;
+    color: var(--brown);
+    line-height: 1.5;
+  }
+  .sb-item strong {
+    display: block;
+    font-weight: 500;
+    color: var(--dark);
+    font-size: 12.5px;
+  }
+
+  /* Visa badges */
+  .visa-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 6px;
+  }
+  .visa-badge {
+    background: var(--warm);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 8px 10px;
+    text-align: center;
+  }
+  .visa-flag { font-size: 18px; display: block; margin-bottom: 3px; }
+  .visa-country { font-size: 10px; font-weight: 500; color: var(--dark); display: block; }
+  .visa-detail { font-size: 9px; color: var(--taupe); letter-spacing: 0.5px; }
+
+  /* Gear cards */
+  .gear-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    margin-bottom: 10px;
+    padding: 10px 12px;
+    background: var(--warm);
+    border-radius: 10px;
+    border: 1px solid var(--border);
+  }
+  .gear-icon { font-size: 18px; line-height: 1; flex-shrink: 0; margin-top: 1px; }
+  .gear-name { font-size: 12px; font-weight: 500; color: var(--dark); display: block; }
+  .gear-desc { font-size: 10.5px; color: var(--taupe); line-height: 1.4; }
+
+  .skill-list { list-style: none; }
+  .skill-list li {
+    font-size: 11.5px;
+    color: var(--brown);
+    padding: 4px 0;
+    border-bottom: 1px dotted var(--border);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .skill-list li::before {
+    content: '✦';
+    color: var(--accent);
+    font-size: 7px;
+    flex-shrink: 0;
+  }
+
+  /* ── MAIN ────────────────────────────────────────────── */
+  .main {
+    padding-left: 40px;
+  }
+
+  .section { margin-bottom: 32px; }
+
+  .section-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 20px;
+    font-weight: 400;
+    font-style: italic;
+    color: var(--dark);
+    margin-bottom: 16px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .section-title::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: var(--border);
+  }
+  .section-title span { font-size: 13px; color: var(--accent); }
+
+  /* About */
+  .about {
+    font-size: 13px;
+    color: var(--brown);
+    line-height: 1.85;
+    font-weight: 300;
+  }
+  .about strong { color: var(--dark); font-weight: 500; }
+
+  /* Creator gear */
+  .gear-main-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    margin-bottom: 14px;
+  }
+  .gear-main-card {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 16px 14px;
+    text-align: center;
+  }
+  .gear-main-emoji { font-size: 24px; display: block; margin-bottom: 8px; }
+  .gear-main-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 15px;
+    font-weight: 500;
+    color: var(--dark);
+    margin-bottom: 4px;
+  }
+  .gear-main-sub { font-size: 10.5px; color: var(--taupe); line-height: 1.5; }
+
+  .platforms {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+  }
+  .platform-tag {
+    font-size: 10px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--brown);
+    border: 1px solid var(--border);
+    border-radius: 100px;
+    padding: 4px 14px;
+    background: var(--white);
+  }
+
+  /* Experience */
+  .exp-item {
+    margin-bottom: 22px;
+    padding-bottom: 22px;
+    border-bottom: 1px solid var(--border);
+  }
+  .exp-item:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
+
+  .exp-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 2px;
+  }
+  .exp-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 17px;
+    font-weight: 500;
+    color: var(--dark);
+  }
+  .exp-period {
+    font-size: 10px;
+    color: var(--taupe);
+    letter-spacing: 1px;
+    white-space: nowrap;
+    margin-left: 12px;
+    margin-top: 3px;
+  }
+  .exp-company {
+    font-size: 11px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 10px;
+    font-weight: 500;
+  }
+  .exp-bullets { list-style: none; }
+  .exp-bullets li {
+    font-size: 12px;
+    color: var(--brown);
+    line-height: 1.7;
+    display: flex;
+    align-items: baseline;
+    gap: 8px;
+    margin-bottom: 2px;
+  }
+  .exp-bullets li::before {
+    content: '✦';
+    color: var(--accent);
+    font-size: 7px;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+
+  /* Countries */
+  .countries-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+  }
+  .country-card {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 16px 18px;
+  }
+  .country-card.wide { grid-column: 1 / -1; }
+  .country-region {
+    font-size: 9px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 4px;
+    font-weight: 500;
+  }
+  .country-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 40px;
+    font-weight: 300;
+    color: var(--dark);
+    line-height: 1;
+    margin-bottom: 8px;
+  }
+  .country-list {
+    font-size: 11.5px;
+    color: var(--taupe);
+    line-height: 1.8;
+  }
+
+  /* ── FOOTER ──────────────────────────────────────────── */
+  .footer {
+    background: var(--dark);
+    padding: 24px 60px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 16px;
+  }
+  .footer-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 18px;
+    font-weight: 400;
+    color: var(--sand);
+    letter-spacing: 1px;
+  }
+  .footer-name em { font-style: italic; color: var(--accent2); }
+  .footer-tagline {
+    font-size: 10px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--taupe);
+  }
+  .footer-socials {
+    display: flex;
+    gap: 18px;
+    font-size: 11px;
+    color: var(--taupe);
+    letter-spacing: 0.5px;
+  }
+
+  /* Rate Card */
+  .rate-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    margin-bottom: 16px;
+  }
+  .rate-card {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 18px 16px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .rate-card.featured {
+    background: var(--dark);
+    border-color: var(--dark);
+  }
+  .rate-card.featured .rate-type,
+  .rate-card.featured .rate-price,
+  .rate-card.featured .rate-unit,
+  .rate-card.featured .rate-desc {
+    color: var(--sand);
+  }
+  .rate-card.featured .rate-price { color: var(--accent2); }
+  .rate-emoji { font-size: 20px; display: block; margin-bottom: 8px; }
+  .rate-type {
+    font-size: 9px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--accent);
+    font-weight: 500;
+    margin-bottom: 10px;
+    display: block;
+  }
+  .rate-card.featured .rate-type { color: var(--accent2); }
+  .rate-price {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 26px;
+    font-weight: 400;
+    color: var(--dark);
+    line-height: 1;
+    display: block;
+    margin-bottom: 2px;
+  }
+  .rate-unit {
+    font-size: 9.5px;
+    color: var(--taupe);
+    letter-spacing: 1px;
+    display: block;
+    margin-bottom: 8px;
+  }
+  .rate-desc {
+    font-size: 10.5px;
+    color: var(--brown);
+    line-height: 1.55;
+  }
+  .rate-note {
+    font-size: 10.5px;
+    color: var(--taupe);
+    font-style: italic;
+    text-align: center;
+    margin-top: 4px;
+  }
+
+  @media print {
+    body { background: white; }
+    .top-strip { display: none; }
+  }
+</style>
+</head>
+<body>
+
+<div class="top-strip">Tour Leader &nbsp;✦&nbsp; Content Creator &nbsp;✦&nbsp; Travel Brand Strategist</div>
+
+<!-- HEADER -->
+<header class="header">
+  <div class="header-left">
+    <div class="header-contact-item"><span>✉</span> <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="2c4b5e494d4f49546c4b414d4540024f4341">[email&#160;protected]</a></div>
+    <div class="header-contact-item"><span>📱</span> +62 896-7318-9571</div>
+    <div class="header-contact-item"><span>📍</span> Depok, Indonesia</div>
+    <div class="header-contact-item"><span>🔗</span> linkedin.com/in/greacexaveria</div>
+  </div>
+
+  <div class="header-center">
+    <div class="photo-ring">
+      <img src="https://greacex.github.io/greacex/assets/profile.jpg" 
+           onerror="this.style.display='none'; this.parentElement.innerHTML='<div style=\'width:100%;height:100%;border-radius:50%;background:var(--warm);display:flex;align-items:center;justify-content:center;font-size:32px;\'>🧳</div>'"
+           alt="Greace Xaveria">
+    </div>
+    <div class="name">Greace <em>Xaveria</em></div>
+    <div class="handle">@greacex</div>
+  </div>
+
+  <div class="header-right">
+    <div class="header-contact-item">📸 @greacex</div>
+    <div class="header-contact-item">🎵 @greacex</div>
+    <div class="header-contact-item">🌐 greacex.github.io/greacex</div>
+    <div class="header-contact-item">✦ 30 Countries Explored</div>
+  </div>
+</header>
+
+<div class="divider">Tour Leader &nbsp;·&nbsp; Content Creator &nbsp;·&nbsp; Travel Brand Strategist</div>
+
+<div class="pills-row">
+  <div class="pill">International Trip</div>
+  <div class="pill">Private Trip</div>
+  <div class="pill">Group Tour</div>
+  <div class="pill">Content Creation</div>
+  <div class="pill">4+ Years Experience</div>
+  <div class="pill">Up to 100 Pax</div>
+</div>
+
+<!-- BODY -->
+<div class="body">
+
+  <!-- SIDEBAR -->
+  <aside class="sidebar">
+
+    <div class="sb-block">
+      <div class="sb-label">Active Visas</div>
+      <div class="visa-grid">
+        <div class="visa-badge">
+          <span class="visa-flag">🇯🇵</span>
+          <span class="visa-country">Japan</span>
+          <span class="visa-detail">5yr multi</span>
+        </div>
+        <div class="visa-badge">
+          <span class="visa-flag">🇰🇷</span>
+          <span class="visa-country">Korea</span>
+          <span class="visa-detail">5yr multi</span>
+        </div>
+        <div class="visa-badge">
+          <span class="visa-flag">🇪🇺</span>
+          <span class="visa-country">Schengen</span>
+          <span class="visa-detail">1yr multi</span>
+        </div>
+        <div class="visa-badge">
+          <span class="visa-flag">🇨🇳</span>
+          <span class="visa-country">China</span>
+          <span class="visa-detail">multi-entry</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="sb-block">
+      <div class="sb-label">Creator Gear</div>
+      <div class="gear-item">
+        <span class="gear-icon">📷</span>
+        <div>
+          <span class="gear-name">Sony A7C</span>
+          <span class="gear-desc">Full-frame mirrorless · photography & cinematic video</span>
+        </div>
+      </div>
+      <div class="gear-item">
+        <span class="gear-icon">🚁</span>
+        <div>
+          <span class="gear-name">DJI Drone</span>
+          <span class="gear-desc">Aerial footage & landscape cinematics</span>
+        </div>
+      </div>
+      <div class="gear-item">
+        <span class="gear-icon">📱</span>
+        <div>
+          <span class="gear-name">iPhone 15</span>
+          <span class="gear-desc">Reels, Stories & daily BTS content</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="sb-block">
+      <div class="sb-label">Education</div>
+      <div class="sb-item">
+        <strong>Universitas Indonesia</strong>
+        S1 Archaeology · 2017–2021
+      </div>
+      <div class="sb-item">
+        <strong>dibimbing.id</strong>
+        UI/UX Design · 2022
+      </div>
+    </div>
+
+    <div class="sb-block">
+      <div class="sb-label">Languages</div>
+      <div class="sb-item">🇮🇩 <strong>Indonesian</strong> — Native</div>
+      <div class="sb-item">🇬🇧 <strong>English</strong> — Professional</div>
+    </div>
+
+    <div class="sb-block">
+      <div class="sb-label">Skills</div>
+      <ul class="skill-list">
+        <li>Tour Leadership</li>
+        <li>Trip Logistics & Planning</li>
+        <li>Group Management</li>
+        <li>Brand Strategy</li>
+        <li>Content Creation</li>
+        <li>Social Media Management</li>
+        <li>Photo & Video Editing</li>
+        <li>Figma / UI-UX Design</li>
+        <li>Digital Marketing</li>
+      </ul>
+    </div>
+
+  </aside>
+
+  <!-- MAIN -->
+  <main class="main">
+
+    <!-- ABOUT -->
+    <section class="section">
+      <div class="section-title"><span>✦</span> About</div>
+      <p class="about">
+        Travel professional who <strong>leads, documents, and inspires</strong> — on the road and online. With <strong>4+ years of experience</strong> guiding international and domestic group trips, I have successfully led <strong>500+ travellers</strong> across destinations in Asia and Europe, typically managing groups of <strong>~25 pax</strong>. I bring operational expertise, creative instincts, and a deep love for exploration to everything I do. Armed with Sony A7C, DJI Drone, and iPhone 15, every trip becomes a story worth telling.
+      </p>
+    </section>
+
+    <!-- CONTENT CREATOR -->
+    <section class="section">
+      <div class="section-title"><span>✦</span> Content Creator</div>
+      <div class="gear-main-grid">
+        <div class="gear-main-card">
+          <span class="gear-main-emoji">📷</span>
+          <div class="gear-main-name">Sony A7C</div>
+          <div class="gear-main-sub">Full-frame mirrorless · travel photography & cinematic videography</div>
+        </div>
+        <div class="gear-main-card">
+          <span class="gear-main-emoji">🚁</span>
+          <div class="gear-main-name">DJI Drone</div>
+          <div class="gear-main-sub">Aerial footage · landscape cinematics · destination showcase</div>
+        </div>
+        <div class="gear-main-card">
+          <span class="gear-main-emoji">📱</span>
+          <div class="gear-main-name">iPhone 15</div>
+          <div class="gear-main-sub">Short-form Reels · Stories · behind-the-scenes content</div>
+        </div>
+      </div>
+      <div class="platforms">
+        <span class="platform-tag">📸 Instagram @greacex</span>
+        <span class="platform-tag">🎵 TikTok @greacex</span>
+        <span class="platform-tag">✈️ Travel Vlogs</span>
+        <span class="platform-tag">🎬 Destination Content</span>
+      </div>
+    </section>
+
+    <!-- EXPERIENCE -->
+    <section class="section">
+      <div class="section-title"><span>✦</span> Experience</div>
+
+      <div class="exp-item">
+        <div class="exp-header">
+          <div class="exp-title">Tour Leader</div>
+          <div class="exp-period">Mar 2024 – Present</div>
+        </div>
+        <div class="exp-company">Widarin Vacation · Jakarta</div>
+        <ul class="exp-bullets">
+          <li>West Europe — France, Belgium, Netherlands, Italy, Switzerland</li>
+          <li>Andalusia — Spain, Portugal & Morocco</li>
+          <li>United Kingdom — England & Scotland</li>
+          <li>Scandinavia — Finland, Estonia, Latvia & Lithuania</li>
+          <li>China — Harbin &nbsp;·&nbsp; Shanghai–Beijing &nbsp;·&nbsp; Hongkong–Macau–Shenzhen</li>
+          <li>East Asia — Japan &nbsp;·&nbsp; SEA — Thailand, Vietnam, Malaysia, Singapore</li>
+        </ul>
+      </div>
+
+      <div class="exp-item">
+        <div class="exp-header">
+          <div class="exp-title">Tour Leader</div>
+          <div class="exp-period">Nov 2021 – Mar 2024</div>
+        </div>
+        <div class="exp-company">TD Travelindo Group · Jakarta · 2 yrs 5 mos</div>
+        <ul class="exp-bullets">
+          <li>Türkiye — 25 pax (Nov 2021 co-TL → Feb 2023 Lead TL)</li>
+          <li>United Kingdom — 35 pax (Nov 2022, co-TL)</li>
+          <li>Europe: Switzerland–Italy — 40 pax (Jan–Feb 2023, co-TL)</li>
+          <li>Korea — 35 pax (May 2023, Lead TL)</li>
+          <li>Bali Incentive — 100 pax (Aug 2022)</li>
+        </ul>
+      </div>
+
+      <div class="exp-item">
+        <div class="exp-header">
+          <div class="exp-title">Founder & Owner</div>
+          <div class="exp-period">Jan 2024 – Mar 2026</div>
+        </div>
+        <div class="exp-company">Walkerlust — Girls-Only Travel Platform</div>
+        <ul class="exp-bullets">
+          <li>Built women-focused domestic travel brand from scratch</li>
+          <li>End-to-end trip planning, pricing, itinerary design & brand identity</li>
+          <li>Developed digital marketing strategy & women's travel community</li>
+        </ul>
+      </div>
+
+      <div class="exp-item">
+        <div class="exp-header">
+          <div class="exp-title">Creative Marketing Specialist</div>
+          <div class="exp-period">Aug 2021 – Apr 2024</div>
+        </div>
+        <div class="exp-company">TD Travelindo Group · Jakarta · 2 yrs 9 mos</div>
+        <ul class="exp-bullets">
+          <li>Grew Instagram @tdtravelindo_group +26K followers in 8 months · 2.3% engagement</li>
+          <li>5M views TikTok · +4K followers · +1K YouTube subscribers</li>
+          <li>Sold 15+ Europe & Umroh packages · 40–45 pax/group in 2022</li>
+          <li>KOL campaign collaboration with Oki Setiana Dewi</li>
+        </ul>
+      </div>
+
+    </section>
+
+    <!-- COUNTRIES -->
+    <section class="section">
+      <div class="section-title"><span>✦</span> 30 Countries Explored</div>
+      <div class="countries-grid">
+        <div class="country-card wide">
+          <div class="country-region">Europe</div>
+          <div class="country-num">19</div>
+          <div class="country-list">France · Netherlands · Belgium · Germany · Switzerland · Italy · Luxembourg · Liechtenstein · Austria · Spain · Portugal · England · Scotland · Finland · Estonia · Latvia · Lithuania · Poland · Czechia</div>
+        </div>
+        <div class="country-card">
+          <div class="country-region">Asia</div>
+          <div class="country-num">10</div>
+          <div class="country-list">China · Hong Kong · Macau · Singapore · Malaysia · Thailand · Vietnam · South Korea · Japan · Türkiye</div>
+        </div>
+        <div class="country-card">
+          <div class="country-region">Africa</div>
+          <div class="country-num">1</div>
+          <div class="country-list">Morocco</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- RATE CARD -->
+    <section class="section">
+      <div class="section-title"><span>✦</span> Rate Card</div>
+      <div class="rate-grid">
+
+        <div class="rate-card">
+          <span class="rate-emoji">🗺️</span>
+          <span class="rate-type">Tour Leader</span>
+          <span class="rate-price">IDR 500K</span>
+          <span class="rate-unit">per day · domestic</span>
+          <div class="rate-desc">Full-day group tour leadership, logistics & documentation</div>
+        </div>
+
+        <div class="rate-card featured">
+          <span class="rate-emoji">✈️</span>
+          <span class="rate-type">Tour Leader</span>
+          <span class="rate-price">IDR 1.5M</span>
+          <span class="rate-unit">per day · international</span>
+          <div class="rate-desc">International trips — itinerary execution, group management & on-ground coordination</div>
+        </div>
+
+        <div class="rate-card">
+          <span class="rate-emoji">📷</span>
+          <span class="rate-type">Content Creation & Videography</span>
+          <span class="rate-price">IDR 2M</span>
+          <span class="rate-unit">per trip / campaign</span>
+          <div class="rate-desc">Sony A7C + DJI Drone — Reels, photography & cinematic recap, delivered edited</div>
+        </div>
+
+        <div class="rate-card">
+          <span class="rate-emoji">📋</span>
+          <span class="rate-type">Itinerary Design</span>
+          <span class="rate-price">IDR 750K</span>
+          <span class="rate-unit">per itinerary</span>
+          <div class="rate-desc">Custom trip planning, pricing research & traveller-ready itinerary deck</div>
+        </div>
+
+      </div>
+      <p class="rate-note">✦ Rates are negotiable based on scope, duration & destination &nbsp;·&nbsp; Package deals available</p>
+    </section>
+
+  </main>
+</div>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-name">Greace <em>Xaveria</em></div>
+  <div class="footer-tagline">Let's explore the world ✦</div>
+  <div class="footer-socials">
+    <span>@greacex</span>
+    <span>·</span>
+    <s
